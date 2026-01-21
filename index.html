@@ -1,21 +1,54 @@
 <!DOCTYPE html>
-<html>
-<body style="margin:0;background:black">
-<video autoplay muted loop playsinline style="width:100vw;height:100vh;object-fit:cover" id="v">
-  <source src="https://shattereddisk.github.io/rickroll/rickroll.mp4" type="video/mp4">
-</video>
-<div onclick="play()" style="
-position:fixed;inset:0;
-display:flex;align-items:center;justify-content:center;
-color:white;font-size:2rem;cursor:pointer">
-Click to continue
-</div>
-<script>
-function play(){
-  v.muted=false;
-  v.play();
-  document.querySelector('div').remove();
-}
-</script>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Welcome</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      background: black;
+      overflow: hidden;
+    }
+    #overlay {
+      position: fixed;
+      inset: 0;
+      background: black;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      color: white;
+      cursor: pointer;
+      z-index: 9999;
+      text-align: center;
+    }
+    video {
+      position: fixed;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  </style>
+</head>
+<body>
+  <video id="rick" autoplay muted loop>
+    <source src="https://shattereddisk.github.io/rickroll/rickroll.mp4" type="video/mp4">
+  </video>
+
+  <div id="overlay" onclick="playRick()">
+    Click anywhere to continue
+  </div>
+
+  <script>
+    function playRick() {
+      const video = document.getElementById('rick');
+      video.muted = false;
+      video.play();
+      document.getElementById('overlay').style.display = 'none';
+    }
+  </script>
 </body>
 </html>
