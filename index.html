@@ -1,1 +1,21 @@
-
+<!DOCTYPE html>
+<html>
+<body style="margin:0;background:black">
+<video autoplay muted loop playsinline style="width:100vw;height:100vh;object-fit:cover" id="v">
+  <source src="https://shattereddisk.github.io/rickroll/rickroll.mp4" type="video/mp4">
+</video>
+<div onclick="play()" style="
+position:fixed;inset:0;
+display:flex;align-items:center;justify-content:center;
+color:white;font-size:2rem;cursor:pointer">
+Click to continue
+</div>
+<script>
+function play(){
+  v.muted=false;
+  v.play();
+  document.querySelector('div').remove();
+}
+</script>
+</body>
+</html>
