@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>BOX NOW – Track Parcel</title>
+<title>Parcel tracking</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
   body {
@@ -10,32 +10,26 @@
     background: #f4f6f8;
     margin: 0;
   }
-  header {
-    background: #111;
-    color: #fff;
-    padding: 15px;
-    font-weight: bold;
-    font-size: 1.2rem;
-  }
-  .container {
-    max-width: 500px;
-    margin: 40px auto;
+  .box {
+    max-width: 420px;
+    margin: 60px auto;
     background: white;
     padding: 20px;
     border-radius: 6px;
-    box-shadow: 0 4px 12px rgba(0,0,0,.1);
+    box-shadow: 0 4px 10px rgba(0,0,0,.1);
+    text-align: center;
   }
   .status {
     background: #e6f4ea;
     color: #137333;
     padding: 10px;
     border-radius: 4px;
-    margin-bottom: 15px;
+    margin: 15px 0;
     font-weight: bold;
   }
   button {
     width: 100%;
-    padding: 15px;
+    padding: 14px;
     font-size: 1rem;
     background: #000;
     color: #fff;
@@ -43,11 +37,11 @@
     border-radius: 4px;
     cursor: pointer;
   }
-  button:hover {
+  button:active {
     background: #222;
   }
 
-  /* Rickroll overlay */
+  /* Rickroll */
   #overlay {
     position: fixed;
     inset: 0;
@@ -64,15 +58,30 @@
 </head>
 <body>
 
-<header>BOX NOW – Parcel Tracking</header>
-
-<div class="container">
-  <p><strong>Tracking number:</strong><br>BNX-847392104</p>
-  <div class="status">📦 Parcel arrived at local locker</div>
-  <p><strong>Last update:</strong><br>Today, 14:27</p>
-  <button onclick="rickroll()">View locker location</button>
+<div class="box">
+  <h2>Parcel tracking</h2>
+  <p><strong>Tracking number</strong><br>BOXNOW‑847392104</p>
+  <div class="status">📦 Ready for pickup</div>
+  <p>Locker location available</p>
+  <button onclick="getLocation()">Get location</button>
 </div>
 
 <div id="overlay">
-  <video id="vid" autoplay muted loop>
-    <source src="https://shattereddisk.github.io/r
+  <video id="vid">
+    <source src="https://shattereddisk.github.io/rickroll/rickroll.mp4" type="video/mp4">
+  </video>
+</div>
+
+<script>
+function getLocation() {
+  const overlay = document.getElementById("overlay");
+  const vid = document.getElementById("vid");
+
+  overlay.style.display = "block";
+  vid.muted = false;
+  vid.play();
+}
+</script>
+
+</body>
+</html>
